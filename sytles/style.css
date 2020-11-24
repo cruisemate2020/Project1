@@ -1,0 +1,33 @@
+body {
+    background-color: gray;
+    margin: 0;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.piano {
+    display: flex;
+}
+
+.white {
+    width: 75px;
+    height: 250px;
+    background-color: white;
+    border: black solid 2px;
+    border-radius: .5rem;
+}
+
+.black {
+    width: 40px;
+    height: 160px;
+    background-color: black;
+    border-radius: .25rem;
+    margin: 0 -20px;
+    z-index: 2;
+}
+
+.gray {
+    background-color: gray
+}
