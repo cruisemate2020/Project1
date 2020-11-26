@@ -1,19 +1,23 @@
 body {
     background-color: gray;
     margin: 0;
-    min-height: 30vh;
+    /* min-height: 30vh; */
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .piano {
     display: flex;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    /* min-height: 30vh; */
 }
 
 .white {
     width: 75px;
-    height: 250px;
+    height: 275px;
     background-color: white;
     border: black solid 2px;
     border-radius: .5rem;
@@ -28,6 +32,17 @@ body {
     z-index: 2;
 }
 
-.gray {
-    background-color: gray
+.playing{
+    transform: scale(.99);
+    border-color: #028ae9;
+    box-shadow: 0 0 1rem #028ae9;
+    background-color: red;
+}
+
+.sheet-music{
+    display: flex;
+    background-color: white;
+    background-image: url('/images/staff.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
