@@ -5,26 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano</title>
     <link rel="stylesheet" href="/sytles/style.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Luckiest+Guy" />
 </head>
 <body>
+    <h1>Piano Picasso</h1>
     <div class="piano">
-        <div data-key="C2" class="white key"></div>
-        <div data-key="Db2" class="black key"></div>
-        <div data-key="D2" class="white key"></div>
-        <div data-key="Eb2" class="black key"></div>
-        <div data-key="E2" class="white key"></div>
-        <div data-key="F2" class="white key"></div>
-        <div data-key="Gb2" class="black key"></div>
-        <div data-key="G2" class="white key"></div>
-        <div data-key="Ab2" class="black key"></div>
-        <div data-key="A2" class="white key"></div>
-        <div data-key="Bb2" class="black key"></div>
-        <div data-key="B2" class="white key"></div>
-        <div data-key="C3" class="white key"></div>
-        <div data-key="Db3" class="black key"></div>
-        <div data-key="D3" class="white key"></div>
-        <div data-key="Eb3" class="black key"></div>
-        <div data-key="E3" class="white key"></div> 
+        <div data-key="C2" class="white key"><span class="whints">Z</span></div>
+        <div data-key="Db2" class="black key"><span class="bhints">S</span></div>
+        <div data-key="D2" class="white key"><span class="whints">X</span></div>
+        <div data-key="Eb2" class="black key"><span class="bhints">D</span></div>
+        <div data-key="E2" class="white key"><span class="whints">C</span></div>
+        <div data-key="F2" class="white key"><span class="whints">V</span></div>
+        <div data-key="Gb2" class="black key"><span class="bhints">G</span></div>
+        <div data-key="G2" class="white key"><span class="whints">B</span></div>
+        <div data-key="Ab2" class="black key"><span class="bhints">H</span></div>
+        <div data-key="A2" class="white key"><span class="whints">N</span></div>
+        <div data-key="Bb2" class="black key"><span class="bhints">J</span></div>
+        <div data-key="B2" class="white key"><span class="whints">M</span></div>
+        <div data-key="C3" class="white key"><span class="whints">,</span></div>
+        <div data-key="Db3" class="black key"><span class="bhints">L</span></div>
+        <div data-key="D3" class="white key"><span class="whints">.</span></div>
+        <div data-key="Eb3" class="black key"><span class="bhints">;</span></div>
+        <div data-key="E3" class="white key"><span class="whints">/</span></div> 
     </div>
 
     <audio id="C2" src="audio/C2.wav"></audio>
@@ -46,7 +48,7 @@
     <audio id="E3" src="audio/E3.wav"></audio>
 
     <div class="sheet-music">
-        <canvas id="canvas" width="1000" height="300"></canvas>
+        <canvas id="canvas" width="1000" height="500"></canvas>
     </div>
     <script src="scripts/index.js"></script>
 </body>

@@ -8,41 +8,72 @@ body {
     flex-direction: column;
 }
 
+h1 {
+    font-family: "Luckiest Guy"; 
+    font-size: 100px; 
+    font-variant: small-caps;
+    text-shadow: 3px 3px 5px lightgreen;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
 .piano {
     display: flex;
-    margin-top: 50px;
-    margin-bottom: 100px;
+    margin-top: 10px;
+    margin-bottom: 30px;
     /* min-height: 30vh; */
 }
 
 .white {
     width: 75px;
-    height: 275px;
+    height: 290px;
     background-color: white;
     border: black solid 2px;
     border-radius: .5rem;
 }
 
 .black {
-    width: 40px;
-    height: 160px;
+    width: 50px;
+    height: 175px;
     background-color: black;
     border-radius: .25rem;
-    margin: 0 -20px;
-    z-index: 2;
+    margin: 0 -25px;
+    z-index: 3;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end
+}
+
+.whints{
+    position: relative;
+    bottom: -240px;
+    color: rgb(175, 172, 172);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.bhints{
+    position: relative;
+    bottom: -140px;
+    color: rgb(175, 172, 172);
+    font-size: 1.5rem;
+    font-weight: bolder;
 }
 
 .playing{
     transform: scale(.99);
     border-color: #028ae9;
     box-shadow: 0 0 1rem #028ae9;
-    background-color: red;
+    background-color: darkorchid;
 }
 
 .sheet-music{
     display: flex;
     background-color: white;
-    background-image: url('/images/staff.png');
+    background-image: url('/images/staff.jpg');
     background-repeat: no-repeat;
     background-position: center;
 }

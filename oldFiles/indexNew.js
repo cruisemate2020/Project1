@@ -5,7 +5,7 @@ const keys = document.querySelectorAll('.key');
 let showedNote = 0;
 const backgroundImg = new Image();
 backgroundImg.src = '/images/staff.jpg'
-let notePosition = 1000;
+let notePosition = 900;
 
 function playNote(note) {
     let keySound;
@@ -124,20 +124,41 @@ switch(event.code) {
 //draw notes
 const noteImgs = ['C2.png', 'Db2.png', 'D2.png', 'Eb2.png', 'E2.png', 'F2.png', 'Gb2.png', 'G2.png', 'Ab2.png', 'A2.png', 'Bb2.png', 'B2.png', 'C3.png', 'Db3.png', 'D3b.png', 'Eb3.png', 'E3.png'];
 
-const songNotes = ['/images/E3.png', '/images/C3.png', '/images/D3.png', '/images/E3.png', '/images/E3.png', '/images/D3.png', '/images/C3.png', '/images/A2.png', '/images/C3.png', '/images/D3.png', '/images/C3.png', '/images/A2.png', '/images/G2.png', '/images/E3.png', '/images/C3.png', '/images/D3.png', '/images/E3.png', '/images/E3.png', '/images/D3.png', '/images/C3.png', '/images/A2.png', '/images/B2.png', '/images/E3.png', '/images/D3.png', '/images/E3.png', '/images/C3.png', '/images/E3.png', '/images/C3.png', '/images/D3.png', '/images/E3.png', '/images/E3.png', '/images/D3.png', '/images/E3.png', '/images/C3.png', '/images/C3.png', '/images/D3.png', '/images/C3.png', '/images/E3.png', '/images/D3.png', '/images/C3.png',];
+const songNotes = ['/images/E3.png', '/images/C3.png', '/images/D3.png', '/images/C3.png'];
 
+//move notes
+// function init() {
+//     console.log(`Note is: ${showedNote}`);
+//     updateCanvasInterval = setInterval(updateCanvas, 1000);
+// }
+
+
+// function updateCanvas() {
+// console.log(`Note is: ${showedNote}`);
+// drawNotes();
+// showedNote++;
+// if (showedNote === 4) clearInterval(interval);
+// };
+
+// function drawNotes() {
+//     context.drawImage(backgroundImg, 0, 0, 1000, 500);
+//     drawing = new Image();
+//     drawing.src = songNotes[showedNote];
+//     context.drawImage(drawing, 800, 0);
+//     console.log(`dn --> ${songNotes[showedNote]}`)
+// }
 renderCanvas();
 
 function incSongNote() {
-    if (showedNote === 3) clearInterval(interval);
+    if (showedNote === 4) clearInterval(interval);
     showedNote++;
-    notePosition -= 150;
+    notePosition -= 100;
     console.log(`isn --> ${songNotes[showedNote]}`)
 }
 
 function renderCanvas()
 {
-//    context.drawImage(backgroundImg, 0, 0, 1000, 500); // clear any previous drawing
+   context.drawImage(backgroundImg, 0, 0, 1000, 500); // clear any previous drawing
     drawing = new Image();
     drawing.src = songNotes[showedNote];
     context.drawImage(drawing, notePosition, 0);
