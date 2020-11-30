@@ -1,11 +1,17 @@
-let interval = window.setInterval(incSongNote, 1000);
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const keys = document.querySelectorAll('.key');
-let showedNote = 0;
+const BPM = 130;
+const gameLevel = 2.5;
+const BPMTime = Math.floor (gameLevel * 1000 * 60 * (1 / BPM));
+const interval = window.setInterval(incSongNote, BPMTime);
 const backgroundImg = new Image();
-backgroundImg.src = '/images/staff.jpg'
+backgroundImg.src = 'images/staff.jpg'
+
+let showedNote = 0;
 let notePosition = 1000;
+let checkedNote;
+let score = 0;
 
 function playNote(note) {
     let keySound;
@@ -34,113 +40,107 @@ const timer = 500;
 document.addEventListener('keydown', event => {
 switch(event.code) {
     case 'KeyZ':
-        playNote('C2');
-        keyChange('C2');
-        setTimeout(() => { keyReturn('C2'); }, timer);
+        playKeyboard('C2');
         break;
     case 'KeyS':
-        playNote('Db2');
-        keyChange('Db2');
-        setTimeout(() => { keyReturn('Db2'); }, timer);
+        playKeyboard('Db2');
         break;
     case 'KeyX':
-        playNote('D2');
-        keyChange('D2');
-        setTimeout(() => { keyReturn('D2'); }, timer);
+        playKeyboard('D2');
         break;
     case 'KeyD':
-        playNote('Eb2');
-        keyChange('Eb2');
-        setTimeout(() => { keyReturn('Eb2'); }, timer);
+        playKeyboard('Eb2');
         break;
     case 'KeyC':
-        playNote('E2');
-        keyChange('E2');
-        setTimeout(() => { keyReturn('E2'); }, timer);
+        playKeyboard('E2');
         break;    
     case 'KeyV':
-        playNote('F2');
-        keyChange('F2');
-        setTimeout(() => { keyReturn('F2'); }, timer);
+        playKeyboard('F2');
         break;
     case 'KeyG':
-        playNote('Gb2');
-        keyChange('Gb2');
-        setTimeout(() => { keyReturn('Gb2'); }, timer);
+        playKeyboard('Gb2');
         break;
     case 'KeyB':
-        playNote('G2');
-        keyChange('G2');
-        setTimeout(() => { keyReturn('G2'); }, timer);
+        playKeyboard('G2');
         break;
     case 'KeyH':
-        playNote('Ab2');
-        keyChange('Ab2');
-        setTimeout(() => { keyReturn('Ab2'); }, timer);
+        playKeyboard('Ab2');
         break;
     case 'KeyN':
-        playNote('A2');
-        keyChange('A2');
-        setTimeout(() => { keyReturn('A2'); }, timer);
+        playKeyboard('A2');
         break;
     case 'KeyJ':
-        playNote('Bb2');
-        keyChange('Bb2');
-        setTimeout(() => { keyReturn('Bb2'); }, timer);
+        playKeyboard('Bb2');
         break;
     case 'KeyM':
-        playNote('B2');
-        keyChange('B2');
-        setTimeout(() => { keyReturn('B2'); }, timer);
+        playKeyboard('B2');
         break;
     case 'Comma':
-        playNote('C3');
-        keyChange('C3');
-        setTimeout(() => { keyReturn('C3'); }, timer);
+        playKeyboard('C3');
         break;
     case 'KeyL':
-        playNote('Db3');
-        keyChange('Db3');
-        setTimeout(() => { keyReturn('Db3'); }, timer);
+        playKeyboard('Db3');
         break;
     case 'Period':
-        playNote('D3');
-        keyChange('D3');
-        setTimeout(() => { keyReturn('D3'); }, timer);
+        playKeyboard('D3');
         break;
     case 'Semicolon':
-        playNote('Eb3');
-        keyChange('Eb3');
-        setTimeout(() => { keyReturn('Eb3'); }, timer);
+        playKeyboard('Eb3');
         break;
     case 'Slash':
-        playNote('E3');
-        keyChange('E3');
-        setTimeout(() => { keyReturn('E3'); }, timer);
+        playKeyboard('E3');
         break;
 }
 })
 
-//draw notes
-const noteImgs = ['C2.png', 'Db2.png', 'D2.png', 'Eb2.png', 'E2.png', 'F2.png', 'Gb2.png', 'G2.png', 'Ab2.png', 'A2.png', 'Bb2.png', 'B2.png', 'C3.png', 'Db3.png', 'D3b.png', 'Eb3.png', 'E3.png'];
+function playKeyboard (keyNote) {
+    playNote(keyNote);
+    keyChange(keyNote);
+    setTimeout(() => { keyReturn(keyNote); }, timer);
+    if (checkedNote === keyNote) {
+        score++;
+        console.log(`---> score ${score}`);
+    }
+}
 
-const songNotes = ['/images/E3.png', '/images/C3.png', '/images/D3.png', '/images/E3.png', '/images/E3.png', '/images/D3.png', '/images/C3.png', '/images/A2.png', '/images/C3.png', '/images/D3.png', '/images/C3.png', '/images/A2.png', '/images/G2.png', '/images/E3.png', '/images/C3.png', '/images/D3.png', '/images/E3.png', '/images/E3.png', '/images/D3.png', '/images/C3.png', '/images/A2.png', '/images/B2.png', '/images/E3.png', '/images/D3.png', '/images/E3.png', '/images/C3.png', '/images/E3.png', '/images/C3.png', '/images/D3.png', '/images/E3.png', '/images/E3.png', '/images/D3.png', '/images/E3.png', '/images/C3.png', '/images/C3.png', '/images/D3.png', '/images/C3.png', '/images/E3.png', '/images/D3.png', '/images/C3.png',];
+// //draw notes
+// const noteImgs = ['C2', 'Db2', 'D2', 'Eb2', 'E2', 'F2', 'Gb2', 'G2', 'Ab2', 'A2', 'Bb2', 'B2', 'C3', 'Db3', 'D3b', 'Eb3', 'E3'];
+
+const songNotes = ['E3', 'C3', 'D3', 'E3', 'E3', 'D3', 'C3', 'A2', 'C3', 'D3', 'C3', 'A2', 'G2', 'E3', 'C3', 'D3', 'E3', 'E3', 'D3', 'C3', 'A2', 'E3', 'D3', 'C3', 'B2', 'E3', 'D3', 'E3', 'C3', 'E3', 'C3', 'D3', 'E3', 'E3', 'D3', 'E3', 'C3', 'C3', 'D3', 'C3', 'E3', 'D3', 'C3'];
 
 renderCanvas();
 
 function incSongNote() {
-    if (showedNote === 3) clearInterval(interval);
-    showedNote++;
-    notePosition -= 150;
-    console.log(`isn --> ${songNotes[showedNote]}`)
+    notePosition -= 100;
 }
 
 function renderCanvas()
 {
-//    context.drawImage(backgroundImg, 0, 0, 1000, 500); // clear any previous drawing
-    drawing = new Image();
-    drawing.src = songNotes[showedNote];
-    context.drawImage(drawing, notePosition, 0);
+    context.drawImage(backgroundImg, 0, 0, 1000, 500);
+    context.fillStyle='yellow';
+    context.fillRect(400, 0, 100, 500);
+    
+    let noteDrawings = [];
+    
+    startingNotePosition = notePosition;
 
-    requestAnimationFrame(renderCanvas); // call renderCanvas again as soon as possible
+    for(let i = 0; i < songNotes.length; i++) {
+        tempDrawing = new Image();
+        tempDrawing.src = 'images/' + songNotes[i] + '.png';
+        noteDrawings.push(tempDrawing);
+    }
+
+        noteDrawings.forEach(n => {
+        if (startingNotePosition > 100) 
+            context.drawImage(n, startingNotePosition, 0);
+    
+
+        if (startingNotePosition > 375 && startingNotePosition < 500) {
+        checkedNote = n.src.substr(n.src.length-6, 2);
+        console.log(`--->${checkedNote}`);
+        }
+        startingNotePosition += 100;
+    });
+
+    requestAnimationFrame(renderCanvas);
 }
