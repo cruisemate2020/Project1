@@ -73,7 +73,7 @@ span {
 .sheet-music{
     display: flex;
     background-color: white;
-    background-image: url('/images/staff.jpg');
+    background-image: url('images/colorStaff.jpg');
     background-repeat: no-repeat;
     background-position: center;
 }

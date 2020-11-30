@@ -2,11 +2,11 @@ const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const keys = document.querySelectorAll('.key');
 const BPM = 130;
-const gameLevel = 2.5;
+const gameLevel = 3;
 const BPMTime = Math.floor (gameLevel * 1000 * 60 * (1 / BPM));
 const interval = window.setInterval(incSongNote, BPMTime);
 const backgroundImg = new Image();
-backgroundImg.src = 'images/staff.jpg'
+backgroundImg.src = 'images/colorStaff.jpg'
 
 let showedNote = 0;
 let notePosition = 1000;
@@ -29,10 +29,6 @@ function keyReturn(note) {
     const endKey = document.querySelector(`[data-key="${note}"`);
     endKey.classList.remove('playing');
 }
-
-setTimeout(() => {
-    keyReturn('C2');
-}, 2000);
 
 //keyboard manipulation
 const timer = 500;
@@ -99,7 +95,7 @@ function playKeyboard (keyNote) {
     setTimeout(() => { keyReturn(keyNote); }, timer);
     if (checkedNote === keyNote) {
         score++;
-        console.log(`---> score ${score}`);
+        // console.log(`---> score ${score}`);
     }
 }
 
@@ -116,9 +112,9 @@ function incSongNote() {
 
 function renderCanvas()
 {
-    context.drawImage(backgroundImg, 0, 0, 1000, 500);
-    context.fillStyle='yellow';
-    context.fillRect(400, 0, 100, 500);
+    context.drawImage(backgroundImg, 0, 0, 1000, 350);
+    context.fillStyle='rgba(255, 255, 51, 0.7)';
+    context.fillRect(400, 0, 100, 350);
     
     let noteDrawings = [];
     
@@ -137,10 +133,24 @@ function renderCanvas()
 
         if (startingNotePosition > 375 && startingNotePosition < 500) {
         checkedNote = n.src.substr(n.src.length-6, 2);
-        console.log(`--->${checkedNote}`);
+        // console.log(`--->${checkedNote}`);
         }
         startingNotePosition += 100;
     });
 
+    showScore();
     requestAnimationFrame(renderCanvas);
+}
+
+function showScore() {
+    context.fillStyle = 'black';
+    context.font = '40px "Luckiest Guy"';
+    context.fillText(`Score: ${score}`, 800, 50);
+}
+
+function gameOver() {
+    context.clearRect(0, 0, 1000, 350);
+    context.fillStyle = 'red';
+    context.font = '70px Arial';
+    context.fillText(`GAME OVER! /nYou scored ${score} points, ` + `${score} \ ${songNotes.length}`, 300, 200);
 }
