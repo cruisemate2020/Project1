@@ -1,5 +1,10 @@
 body {
     background-color: gray;
+    background-image: url('/images/pngwing.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     margin: 0;
     /* min-height: 30vh; */
     display: flex;
@@ -10,18 +15,17 @@ body {
 
 h1 {
     font-family: "Luckiest Guy"; 
-    font-size: 100px; 
+    font-size: 175px; 
     font-variant: small-caps;
     text-shadow: 3px 3px 5px lightgreen;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-bottom: 5px;
 }
 
 .piano {
     display: flex;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 30px;
-    /* min-height: 30vh; */
 }
 
 .white {
@@ -49,9 +53,9 @@ span {
 
 .whints{
     position: relative;
-    bottom: -240px;
+    bottom: -250px;
     color: rgb(175, 172, 172);
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bolder;
 }
 
@@ -76,4 +80,13 @@ span {
     background-image: url('images/colorStaff.jpg');
     background-repeat: no-repeat;
     background-position: center;
+}
+
+button {
+    margin: 25px;
+    padding-top: 10px;
+    font-size: 3em;
+    font-family: "Luckiest Guy";
+    border-radius: 10px;
+    text-shadow: 2px 2px 3px darkorchid;
 }

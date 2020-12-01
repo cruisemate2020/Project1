@@ -2,16 +2,28 @@ const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const keys = document.querySelectorAll('.key');
 const BPM = 130;
-const gameLevel = 3;
+const gameLevel = .5;
 const BPMTime = Math.floor (gameLevel * 1000 * 60 * (1 / BPM));
-const interval = window.setInterval(incSongNote, BPMTime);
 const backgroundImg = new Image();
 backgroundImg.src = 'images/colorStaff.jpg'
 
+let interval;
 let showedNote = 0;
 let notePosition = 1000;
 let checkedNote;
 let score = 0;
+let gameBtn = document.getElementById('playGame');
+let freePlayBtn = document.getElementById('freePlay');
+
+
+window.onload = () => {
+    // console.log('playgame');
+    document.getElementById('playGame').onclick = () => {
+    // console.log('onclick');
+    interval = window.setInterval(incSongNote, BPMTime);
+    renderCanvas();
+    };
+}
 
 function playNote(note) {
     let keySound;
@@ -90,6 +102,7 @@ switch(event.code) {
 })
 
 function playKeyboard (keyNote) {
+    // console.log('playkeyboard');
     playNote(keyNote);
     keyChange(keyNote);
     setTimeout(() => { keyReturn(keyNote); }, timer);
@@ -104,14 +117,21 @@ function playKeyboard (keyNote) {
 
 const songNotes = ['E3', 'C3', 'D3', 'E3', 'E3', 'D3', 'C3', 'A2', 'C3', 'D3', 'C3', 'A2', 'G2', 'E3', 'C3', 'D3', 'E3', 'E3', 'D3', 'C3', 'A2', 'E3', 'D3', 'C3', 'B2', 'E3', 'D3', 'E3', 'C3', 'E3', 'C3', 'D3', 'E3', 'E3', 'D3', 'E3', 'C3', 'C3', 'D3', 'C3', 'E3', 'D3', 'C3'];
 
-renderCanvas();
+
+//need to create method to create start and freeplay... start button to call render Canvas, free play to call method to play free notes
+
+// renderCanvas();
+
+
 
 function incSongNote() {
+    console.log('incSongNote')
     notePosition -= 100;
 }
 
 function renderCanvas()
 {
+    // console.log('renderCanvas')
     context.drawImage(backgroundImg, 0, 0, 1000, 350);
     context.fillStyle='rgba(255, 255, 51, 0.7)';
     context.fillRect(400, 0, 100, 350);
@@ -139,18 +159,32 @@ function renderCanvas()
     });
 
     showScore();
+
+    if (songNotes[songNotes.length - 1] && startingNotePosition < 200) gameOver();
+
     requestAnimationFrame(renderCanvas);
 }
 
 function showScore() {
+    // console.log('showScore');
     context.fillStyle = 'black';
     context.font = '40px "Luckiest Guy"';
     context.fillText(`Score: ${score}`, 800, 50);
 }
 
 function gameOver() {
+    // console.log('gameOver');
     context.clearRect(0, 0, 1000, 350);
-    context.fillStyle = 'red';
-    context.font = '70px Arial';
-    context.fillText(`GAME OVER! /nYou scored ${score} points, ` + `${score} \ ${songNotes.length}`, 300, 200);
+    context.shadowBlur = 10;
+    context.shadowOffsetY = 10;
+    context.shadowColor = "lightgreen";
+    context.fillStyle = 'blue';
+    context.font = '90px "Luckiest Guy"';
+    context.fillText(`GAME OVER!`, 300, 150);
+    context.fillStyle = 'blue';
+    context.font = '70px "Luckiest Guy"';
+    context.fillText(`You scored ${score} points!`, 175, 250);
+    gameBtn.innerHTML = 'Play Again';
+    gameBtn.addEventListener('click', () => {location.reload();
+    })
 }
