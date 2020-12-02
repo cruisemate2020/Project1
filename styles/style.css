@@ -1,5 +1,5 @@
 body {
-    background-color: gray;
+    background-color: black;
     background-image: url('/images/pngwing.png');
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -17,7 +17,8 @@ h1 {
     font-family: "Luckiest Guy"; 
     font-size: 175px; 
     font-variant: small-caps;
-    text-shadow: 3px 3px 5px lightgreen;
+    text-shadow: 10px 10px 10px lightgreen,
+    -1px -1px 0 lightgreen;
     margin-top: 25px;
     margin-bottom: 5px;
 }
@@ -34,6 +35,7 @@ h1 {
     background-color: white;
     border: black solid 2px;
     border-radius: .5rem;
+    box-shadow: 4px 4px 4px lightslategray;
 }
 
 .black {
@@ -42,6 +44,7 @@ h1 {
     background-color: black;
     border-radius: .25rem;
     margin: 0 -25px;
+    box-shadow: 4px 4px 4px lightslategray;
     z-index: 3;
 }
 
@@ -54,6 +57,8 @@ span {
 .whints{
     position: relative;
     bottom: -250px;
+    text-shadow: 1px 1px 1px gray,
+    -1px -1px 0 gray;
     color: rgb(175, 172, 172);
     font-size: 2rem;
     font-weight: bolder;
@@ -62,6 +67,8 @@ span {
 .bhints{
     position: relative;
     bottom: -140px;
+    text-shadow: 1px 1px 1px gray,
+    -1px -1px 0 gray;
     color: rgb(175, 172, 172);
     font-size: 1.5rem;
     font-weight: bolder;
@@ -76,17 +83,23 @@ span {
 
 .sheet-music{
     display: flex;
-    background-color: white;
-    background-image: url('images/colorStaff.jpg');
+    background-color: transparent;
+    background-image: url('images/colorStaff.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 button {
+    background-color: rgba(233, 215, 215, 0.5);
     margin: 25px;
     padding-top: 10px;
     font-size: 3em;
     font-family: "Luckiest Guy";
     border-radius: 10px;
-    text-shadow: 2px 2px 3px darkorchid;
+    text-shadow: 5px 5px 5px darkorchid,
+    -1px -1px 0 darkorchid;
+}
+
+#instructions {
+    color: white;
 }
