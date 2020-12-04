@@ -1,6 +1,6 @@
 body {
     background-color: black;
-    background-image: url('/images/pngwing.png');
+    background-image: url('images/colorSwirls.png');
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -83,6 +83,8 @@ span {
 
 .sheet-music{
     display: flex;
+    position: relative;
+    align-items: center;
     background-color: transparent;
     background-image: url('images/colorStaff.png');
     background-repeat: no-repeat;
@@ -101,5 +103,15 @@ button {
 }
 
 #instructions {
+    position: absolute;
+    align-content: center;
+    font-family: "Luckiest Guy"; 
+    font-size: 36px;
+    margin: 10px 50px;
+    text-align: center;
     color: white;
+}
+
+.songTitle {
+    font-size: .5em;
 }
