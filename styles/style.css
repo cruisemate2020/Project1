@@ -1,6 +1,6 @@
 body {
     background-color: black;
-    background-image: url('images/colorSwirls.png');
+    background-image: url('../images/colorSwirls.png');
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
