@@ -15,6 +15,7 @@ let checkedNote;
 let score = 0;
 let playMode;
 let gameStarted = false;
+// let previousNotePlayLength = 0;
 
 //page load
 window.onload = () => {
@@ -32,6 +33,7 @@ window.onload = () => {
     document.getElementById('practice').onclick = () => {
         startPiano(2);
         playMode = 'practice';
+        // interval = notePosition -= 120;
         setResetButtons()
     };
 }
@@ -233,6 +235,13 @@ function renderCanvas()
             if(notesToPlay[i].notePosition < -500  && playMode === 'practice') {
                 practiceKeys.splice(i, 1);
             }
+
+            // if(playMode === 'practice' && practiceKeys.length === previousNotePlayLength) {
+            //     previousNotePlayLength = practiceKeys.length;
+            //     practiceKeys.push('');
+            
+            // }
+
         }
     }
 
