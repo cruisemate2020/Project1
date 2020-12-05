@@ -115,3 +115,7 @@ button {
 .songTitle {
     font-size: .5em;
 }
+
+.game_buttons {
+    display: flex;
+}
