@@ -6,7 +6,7 @@ const gameBtn = document.getElementById('playGameEasy');
 const gameBtn2 = document.getElementById('playGameHard');
 const gameBtnPractice = document.getElementById('practice');
 const backgroundImg = new Image();
-backgroundImg.src = 'images/colorStaff.png';
+backgroundImg.src = './images/colorStaff.png';
 
 let interval;
 let showedNote = 0;
@@ -229,7 +229,7 @@ function renderCanvas()
 
             const practiceNotePath = playMode === 'practice' ? `freePlay/${notesToPlay[i]}` : null;
             tempDrawing = new Image();
-            tempDrawing.src = `images/${playMode !== 'practice' ? notesToPlay[i] : practiceNotePath}.png`;
+            tempDrawing.src = `./images/${playMode !== 'practice' ? notesToPlay[i] : practiceNotePath}.png`;
             noteDrawings.push(tempDrawing);
             
             if(notesToPlay[i].notePosition < -500  && playMode === 'practice') {
